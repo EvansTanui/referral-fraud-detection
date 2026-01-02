@@ -1,15 +1,15 @@
 # Referral Fraud Detection
 
 A data engineering and analytics project designed to identify suspicious referral behavior using transaction, referral, and reward data.  
-The project demonstrates how rule-based fraud signals can be engineered, profiled, and operationalized for investigation workflows.
+This project focuses on **interpretable, rule-based fraud signals**, reflecting how early-stage fraud detection systems are commonly implemented in production environments.
 
 ---
 
 ##  Project Objectives
-- Detect fraudulent or abusive referral patterns
-- Generate interpretable fraud signals for analysts
-- Showcase clean data engineering structure and reproducible analytics
-- Lay foundations for future ML-based fraud detection
+- Detect fraudulent or abusive referral patterns in incentive-based systems
+- Generate clear and explainable fraud signals for analyst review
+- Demonstrate clean data engineering structure and reproducible analytics workflows
+- Establish a foundation for future statistical or machine learning–based fraud detection
 
 ---
 
@@ -19,7 +19,7 @@ referral-fraud-detection/
 │ ├── raw/ # Source datasets (transactions, referrals, rewards)
 │ └── output/ # Generated fraud signals and reports
 ├── profiling/
-│ └── data_profiling.csv # Data quality & summary statistics
+│ └── data_profiling.csv # Data quality checks and summary statistics
 ├── src/
 │ ├── profiling.py # Data profiling and validation logic
 │ └── fraud_signals.py # Rule-based fraud detection signals
@@ -35,20 +35,28 @@ referral-fraud-detection/
 
 ### 1. Self-Referrals
 Flags cases where a user refers themselves:
-Often indicates system abuse or test account exploitation.
+
+This behavior often indicates system abuse, test account misuse, or reward exploitation.
+
+---
 
 ### 2. High-Volume Referrers
-Identifies users with an unusually high number of referrals compared to the population.
-This may indicate:
+Identifies users generating an unusually high number of referrals compared to the overall population.
+
+Such behavior may indicate:
 - Referral farming
-- Automated scripts
+- Automated or scripted activity
 - Coordinated fraud rings
 
+---
+
 ### 3. Referrals Without Completed Transactions
-Detects referrals that never result in a successful payment.
-Useful for identifying:
+Detects referrals that never result in a successful payment transaction.
+
+This signal is useful for identifying:
 - Incentive abuse
-- Fake or abandoned accounts
+- Fake or low-quality accounts
+- Abandoned referral attempts
 
 ---
 
@@ -61,34 +69,42 @@ Useful for identifying:
 - Top 1% referrer contribution (%)
 - Fraud-flagged users as a percentage of total users
 
+---
+
 ### Behavioral Metrics
 - Referral velocity (referrals per day)
 - Time between referral and first transaction
 - Repeat referral patterns per user
 
+---
+
 ### Business Impact Metrics
 - Rewards issued to flagged users
 - Estimated incentive leakage
-- Conversion rate: clean vs flagged referrals
+- Conversion rate of clean vs flagged referrals
 
 ---
 
 ##  Outputs
-- `fraud_signals.csv`: Aggregated fraud flags per user
-- `data_profiling.csv`: Dataset health, null rates, and distributions
+- `fraud_signals.csv`: Aggregated fraud flags generated from rule-based detection
+- `data_profiling.csv`: Dataset health indicators, null rates, and distributions
 
-These outputs are designed for:
-- Fraud analyst review
-- Dashboarding
-- Escalation pipelines
+These outputs are designed to support:
+- Fraud analyst investigations
+- Dashboarding and reporting
+- Escalation and review pipelines
 
 ---
 
 ##  How to Run
 
-From the project root:
+From the project root directory:
+
+```bash
+pip install -r requirements.txt
 python src/profiling.py
 python src/fraud_signals.py
+
 
 
 
