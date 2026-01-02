@@ -63,10 +63,10 @@ This signal is useful for identifying:
 ##  Fraud KPIs
 
 ### Core Fraud Metrics
-- Self-referral rate (%)
+- Self-referral rate (0.2%)
 - Percentage of referrals without completed transactions
 - Average referrals per user
-- Top 1% referrer contribution (%)
+- Top 1% referrer contribution (15%)
 - Fraud-flagged users as a percentage of total users
 
 ---
