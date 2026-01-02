@@ -16,15 +16,15 @@ This project focuses on **interpretable, rule-based fraud signals**, reflecting 
 ##  Project Structure
 referral-fraud-detection/
 ├── data/
-│ ├── raw/ # Source datasets (transactions, referrals, rewards)
-│ └── output/ # Generated fraud signals and reports
+│ ├── raw/  Source datasets (transactions, referrals, rewards)
+│ └── output/  Generated fraud signals and reports
 ├── profiling/
-│ └── data_profiling.csv # Data quality checks and summary statistics
+│ └── data_profiling.csv  Data quality checks and summary statistics
 ├── src/
-│ ├── profiling.py # Data profiling and validation logic
-│ └── fraud_signals.py # Rule-based fraud detection signals
+│ ├── profiling.py  Data profiling and validation logic
+│ └── fraud_signals.py  Rule-based fraud detection signals
 ├── docs/
-│ └── README.md # Extended documentation (optional)
+│ └── README.md  Extended documentation (optional)
 ├── requirements.txt
 ├── .gitignore
 └── README.md
